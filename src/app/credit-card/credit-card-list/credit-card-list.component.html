@@ -1,1 +1,8 @@
 <p>credit-card-list works!</p>
+
+<div *ngIf="cards">
+    <div *ngIf="cards.length ; else noneFound">
+        <div *ngFor="let card of cards">{{card.card_number}}</div>
+    </div>
+    <ng-template #noneFound>Error</ng-template>
+</div>

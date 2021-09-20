@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CreditCard } from '../credit-card-model';
+import { CreditCardService } from '../credit-card-service';
 
 @Component({
   selector: 'app-credit-card-list',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./credit-card-list.component.css']
 })
 export class CreditCardListComponent implements OnInit {
+  cards?: CreditCard[]
 
-  constructor() { }
+
+  constructor(private creditCardService: CreditCardService) { }
 
   ngOnInit(): void {
+    this.getCards();
+  }
+
+  getCards() {
+    this.creditCardService.get().subscribe(cards => this.cards = cards)
   }
 
 }
