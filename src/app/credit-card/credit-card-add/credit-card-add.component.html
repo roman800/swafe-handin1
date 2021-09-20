@@ -1,1 +1,10 @@
 <p>credit-card-add works!</p>
+
+<Form [formGroup]="creditCardForm">
+    <input type="number" formControlName="card_number" placeholder="card number">
+    <input type="number" formControlName="csc_code" placeholder="csc code">
+    <input type="text" formControlName="cardholder_name" placeholder="card holder name">
+    <input type="number" formControlName="expiration_date_month" placeholder="expiration date month">
+    <input type="number" formControlName="expiration_date_year" placeholder="expiration_date_year">
+    <button (click)="onClick()">Add</button>
+</Form>
