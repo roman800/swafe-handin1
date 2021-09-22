@@ -16,7 +16,7 @@ export class TransactionOverviewComponent implements OnInit {
     this.transactionService.get().subscribe(
       transactions => {
         this.transactions = transactions;
-        this.transaction = this.transactions?.pop()
+        this.transaction = transactions.pop();
       });
   }
 

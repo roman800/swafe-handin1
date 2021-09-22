@@ -1,1 +1,11 @@
 <p>transaction-list works!</p>
+
+
+<div *ngIf="transactions">
+	<div *ngIf="transactions.length ; else noneFound">
+		<div *ngFor="let transaction of transactions">
+			<app-transaction-list-item [transaction]="transaction"></app-transaction-list-item>
+		</div>
+	</div>
+	<ng-template #noneFound>Error</ng-template>
+</div>

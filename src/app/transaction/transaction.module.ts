@@ -16,6 +16,9 @@ import { TransactionListItemComponent } from './transaction-list-item/transactio
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    TransactionOverviewComponent
   ]
 })
 export class TransactionModule { }

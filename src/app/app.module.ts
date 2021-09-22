@@ -7,6 +7,8 @@ import { CreditCardModule } from './credit-card/credit-card-module';
 import { HomeComponent } from './home/home.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TransactionOverviewComponent } from './transaction/transaction-overview/transaction-overview.component';
+import { TransactionModule } from './transaction/transaction.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavigationBarComponent],
@@ -15,8 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     CreditCardModule,
     BrowserAnimationsModule,
+    TransactionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

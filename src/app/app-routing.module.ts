@@ -22,4 +22,4 @@ export const navigationRoutes: Routes = [
   imports: [RouterModule.forRoot(navigationRoutes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
