@@ -1,10 +1,101 @@
-<p>credit-card-add works!</p>
+<div class="container">
+  <!-- Credit card form -->
+  <Form [formGroup]="creditCardForm">
+    <!-- Card number -->
+    <div class="input-container">
+      <p>Card number</p>
+      <input
+        type="number"
+        formControlName="card_number"
+        placeholder="card number"
+        [ngClass]="{ error: c.card_number.errors && showErrors }"
+      />
+      <div *ngIf="c.card_number.errors && showErrors">
+        <div
+          *ngFor="let error of c.card_number.errors | controlError"
+          class="error-info"
+        >
+          {{ error }}
+        </div>
+      </div>
+    </div>
 
-<Form [formGroup]="creditCardForm">
-    <input type="number" formControlName="card_number" placeholder="card number">
-    <input type="number" formControlName="csc_code" placeholder="csc code">
-    <input type="text" formControlName="cardholder_name" placeholder="card holder name">
-    <input type="number" formControlName="expiration_date_month" placeholder="expiration date month">
-    <input type="number" formControlName="expiration_date_year" placeholder="expiration_date_year">
-    <button (click)="onClick()">Add</button>
-</Form>
+    <!-- CSC Code -->
+    <div class="input-container">
+      <p>CSC code</p>
+      <input
+        type="number"
+        formControlName="csc_code"
+        placeholder="CSC code"
+        [ngClass]="{ error: c.csc_code.errors && showErrors }"
+      />
+      <div *ngIf="c.csc_code.errors && showErrors">
+        <div
+          *ngFor="let error of c.csc_code.errors | controlError"
+          class="error-info"
+        >
+          {{ error }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Cardholder name -->
+    <div class="input-container">
+      <p>Cardholder's name</p>
+      <input
+        type="number"
+        formControlName="cardholder_name"
+        placeholder="Card holder's name"
+        [ngClass]="{ error: c.cardholder_name.errors && showErrors }"
+      />
+      <div *ngIf="c.cardholder_name.errors && showErrors">
+        <div
+          *ngFor="let error of c.cardholder_name.errors | controlError"
+          class="error-info"
+        >
+          {{ error }}
+        </div>
+      </div>
+    </div>
+    <div class="input-container-row">
+      <!-- Expiration date month -->
+      <div class="input-container">
+        <p>Expiration month</p>
+        <input
+          type="number"
+          formControlName="expiration_date_month"
+          placeholder="The month of the card's expiration date"
+          [ngClass]="{ error: c.expiration_date_month.errors && showErrors }"
+        />
+        <div *ngIf="c.expiration_date_month.errors && showErrors">
+          <div
+            *ngFor="let error of c.expiration_date_month.errors | controlError"
+            class="error-info"
+          >
+            {{ error }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Expiration date year -->
+      <div class="input-container">
+        <p>Expiration year</p>
+        <input
+          type="number"
+          formControlName="expiration_date_year"
+          placeholder="The year of the card's expiration date"
+          [ngClass]="{ error: c.expiration_date_year.errors && showErrors }"
+        />
+        <div *ngIf="c.expiration_date_year.errors && showErrors">
+          <div
+            *ngFor="let error of c.expiration_date_year.errors | controlError"
+            class="error-info"
+          >
+            {{ error }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="onClick()">Add credit card</button>
+  </Form>
+</div>

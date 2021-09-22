@@ -3,3 +3,23 @@
     --success: #5eff76;
     --grey: #858585;
 }
+
+html,
+body {
+    height: 100%;
+    p {
+        margin: 0;
+    }
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+Snackbar panelClasses .snackError {
+    background-color: var(--error);
+}
+
+.snackSuccess {
+    background-color: var(--success);
+}

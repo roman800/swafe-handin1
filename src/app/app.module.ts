@@ -6,19 +6,17 @@ import { AppComponent } from './app.component';
 import { CreditCardModule } from './credit-card/credit-card-module';
 import { HomeComponent } from './home/home.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NavigationBarComponent
-  ],
+  declarations: [AppComponent, HomeComponent, NavigationBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CreditCardModule
+    CreditCardModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
