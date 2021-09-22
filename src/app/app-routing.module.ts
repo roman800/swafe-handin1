@@ -2,26 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreditCardAddComponent } from './credit-card/credit-card-add/credit-card-add.component';
 import { HomeComponent } from './home/home.component';
-import { TransactionListComponent } from './transaction/transaction-list/transaction-list.component';
 import { TransactionOverviewComponent } from './transaction/transaction-overview/transaction-overview.component';
 
-const routes: Routes = [
+export const navigationRoutes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'add-card',
-    component: CreditCardAddComponent
+    component: CreditCardAddComponent,
   },
   {
     path: 'transaction-screen',
-    component: TransactionOverviewComponent
-  }
+    component: TransactionOverviewComponent,
+  },
 ];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(navigationRoutes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

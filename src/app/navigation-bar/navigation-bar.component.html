@@ -1,5 +1,10 @@
-<div>
-    <div routerLink="home">Home</div>
-    <div routerLink="add-card">Add card</div>
-    <div routerLink="transaction-screen">Transactions</div>
+<div class="routing-container">
+  <div
+    *ngFor="let route of routes"
+    class="route"
+    [routerLink]="route"
+    [ngClass]="{ activated: route === currentRoute }"
+  >
+    {{ route | titlecase }}
+  </div>
 </div>

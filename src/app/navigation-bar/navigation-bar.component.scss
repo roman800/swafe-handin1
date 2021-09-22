@@ -1,0 +1,23 @@
+.routing-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    gap: 20px;
+
+    .route {
+        flex: 1;
+        border: 1px solid var(--grey);
+        padding: 20px 40px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &.activated {
+            background-color: var(--success);
+            font-weight: bold;
+        }
+    }
+}
