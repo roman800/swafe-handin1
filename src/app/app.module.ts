@@ -4,22 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreditCardModule } from './credit-card/credit-card-module';
-import { HomeComponent } from './home/home.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TransactionOverviewComponent } from './transaction/transaction-overview/transaction-overview.component';
+
 import { TransactionModule } from './transaction/transaction.module';
+import { CardDetailsComponent } from './credit-card/card-details/card-details.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavigationBarComponent],
+  declarations: [AppComponent, NavigationBarComponent, CardDetailsComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     CreditCardModule,
-    BrowserAnimationsModule,
-    TransactionModule
+    TransactionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [],
 })
-export class AppModule { }
+export class AppModule {}

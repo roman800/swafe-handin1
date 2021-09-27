@@ -1,0 +1,10 @@
+@import "../../../mixins/table.scss";
+@include table-with-header;
+
+.loading {
+	display: flex;
+	width: 100%;
+	padding: 50px;
+	justify-content: center;
+	align-items: center;
+}

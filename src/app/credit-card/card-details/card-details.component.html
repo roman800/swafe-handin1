@@ -1,0 +1,14 @@
+<div class="container">
+  <div *ngIf="creditCard$ | async as creditCard; else notFound" class="details">
+    <!-- This styling can be done generic... :)  -->
+    <div style="grid-column: 1/1; grid-row: 1/1">
+      <p>Cardholder's name:</p>
+      <div>{{ creditCard.cardholder_name }}</div>
+    </div>
+    <div style="grid-column: 2/2; grid-row: 1/1">
+      <p>Card number:</p>
+      <div>{{ creditCard.card_number }}</div>
+    </div>
+  </div>
+  <ng-template #notFound> Card not found. Go Back. </ng-template>
+</div>

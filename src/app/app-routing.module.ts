@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CardDetailsComponent } from './credit-card/card-details/card-details.component';
 import { CreditCardAddComponent } from './credit-card/credit-card-add/credit-card-add.component';
-import { HomeComponent } from './home/home.component';
+import { CreditCardListComponent } from './credit-card/credit-card-list/credit-card-list.component';
 import { TransactionOverviewComponent } from './transaction/transaction-overview/transaction-overview.component';
 
 export const navigationRoutes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'credit-cards',
+    component: CreditCardListComponent,
+  },
+  {
+    path: 'credit-cards/:id',
+    component: CardDetailsComponent,
   },
   {
     path: 'add-card',
@@ -22,4 +28,4 @@ export const navigationRoutes: Routes = [
   imports: [RouterModule.forRoot(navigationRoutes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

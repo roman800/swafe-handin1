@@ -1,8 +1,26 @@
-<p>credit-card-list works!</p>
-
-<div *ngIf="cards">
-    <div *ngIf="cards.length ; else noneFound">
-        <div *ngFor="let card of cards">{{card.card_number}}</div>
-    </div>
-    <ng-template #noneFound>Error</ng-template>
+<div *ngIf="creditCards | async as cards; else loading" class="container">
+  <!-- Card list -->
+  <table *ngIf="cards.length; else noneFound">
+    <tr>
+      <td>Cardholder's name:</td>
+      <td>Card number</td>
+      <td>Issuer</td>
+    </tr>
+    <tr *ngFor="let card of cards" [routerLink]="card.card_number.toString()">
+      <td>{{ card.cardholder_name }}</td>
+      <td>{{ card.card_number }}</td>
+      <td>{{ card.issuer }}</td>
+    </tr>
+  </table>
+  <!-- Error -->
+  <ng-template #noneFound
+    >Could not fetch credit cards... Try again or contact our
+    support.</ng-template
+  >
 </div>
+<!-- Loading state -->
+<ng-template #loading>
+  <div class="loading">
+    <mat-spinner [color]="'primary'"></mat-spinner>
+  </div>
+</ng-template>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router, Routes } from '@angular/router';
-import { navigationRoutes } from '../app-routing.module';
+import { NavigationStart, Router } from '@angular/router';
 
-export type NavRoute = 'home' | 'add-card' | 'transaction-screen';
+export type NavRoute = 'credit-cards' | 'add-card' | 'transaction-screen';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -11,7 +10,6 @@ export type NavRoute = 'home' | 'add-card' | 'transaction-screen';
 })
 export class NavigationBarComponent implements OnInit {
   currentRoute?: NavRoute;
-  routes: string[] = navigationRoutes.map((route) => route.path as string);
 
   constructor(private router: Router) {}
 

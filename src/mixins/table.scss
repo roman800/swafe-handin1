@@ -1,0 +1,11 @@
+@mixin table-with-header {
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	tr {
+		border-bottom: 1px solid #ebebeb;
+		height: 72px;
+		cursor: pointer;
+	}
+}
