@@ -2,7 +2,7 @@
 
 
 <div *ngIf="transactions">
-	<div *ngIf="transactions.length ; else noneFound">
+	<div *ngIf="transactions.length ; else noneFound" class="transaction-List">
 		<div *ngFor="let transaction of transactions">
 			<app-transaction-list-item [transaction]="transaction"></app-transaction-list-item>
 		</div>

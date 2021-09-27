@@ -4,15 +4,17 @@ import { Transaction } from '../transaction.model';
 @Component({
   selector: 'app-transaction-list-item',
   templateUrl: './transaction-list-item.component.html',
-  styleUrls: ['./transaction-list-item.component.css']
+  styleUrls: ['./transaction-list-item.component.scss'],
 })
 export class TransactionListItemComponent implements OnInit {
-
-  @Input() transaction!: Transaction
-
-  constructor() { }
+  @Input() transaction!: Transaction;
+  date!: Date;
+  constructor() {}
 
   ngOnInit(): void {
+    this.date = new Date(this.transaction.date);
   }
-
+  onClick(): void {
+    alert('TODO: missing server component for remove');
+  }
 }
