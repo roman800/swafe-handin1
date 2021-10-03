@@ -77,7 +77,7 @@ export class CreditCardAddComponent implements OnInit {
         null,
         [Validators.min(1), Validators.max(31), Validators.required],
       ],
-      issuer: '',
+      issuer: 'Angular',
     });
   }
 
