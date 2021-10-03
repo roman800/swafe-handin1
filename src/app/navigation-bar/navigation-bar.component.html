@@ -1,6 +1,10 @@
 <div class="routing-container">
   <div
-    [ngClass]="{ activated: 'credit-cards' === currentRoute }"
+    [ngClass]="{
+      activated:
+        'credit-cards' === currentRoute ||
+        currentRoute?.includes('credit-cards')
+    }"
     class="route"
     routerLink="credit-cards"
   >

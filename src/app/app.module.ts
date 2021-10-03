@@ -8,10 +8,9 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TransactionModule } from './transaction/transaction.module';
-import { CardDetailsComponent } from './credit-card/card-details/card-details.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationBarComponent, CardDetailsComponent],
+  declarations: [AppComponent, NavigationBarComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
