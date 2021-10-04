@@ -3,16 +3,10 @@
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  .input-container-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 40px;
-  }
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  display: grid;
+  gap: 30px;
 
   .input-container {
     display: flex;
@@ -20,7 +14,6 @@ form {
     gap: 5px;
 
     input {
-      width: 150px;
       padding: 10px 5px;
       border-radius: 5px;
       border: 1px solid black;

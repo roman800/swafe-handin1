@@ -5,9 +5,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { ControlErrorPipe } from './control-error.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [ControlErrorPipe],
   imports: [
     CommonModule,
     MatProgressSpinnerModule,
@@ -23,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSnackBarModule,
     MatButtonModule,
     MatSelectModule,
+    ControlErrorPipe,
   ],
 })
 export class SharedModule {}

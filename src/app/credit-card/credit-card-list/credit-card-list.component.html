@@ -10,7 +10,7 @@
       *ngFor="let card of cards; index as i"
       class="credit-card"
       [routerLink]="card.card_number.toString()"
-      [ngClass]="{ marked: i % 0 }"
+      [ngClass]="{ marked: i % 2 }"
     >
       <td>{{ card.cardholder_name }}</td>
       <td>{{ card.card_number }}</td>
