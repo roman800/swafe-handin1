@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { SELECT_PANEL_INDENT_PADDING_X } from '@angular/material/select/select';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, mergeAll } from 'rxjs/operators';
 import { CreditCard } from '../credit-card-model';
@@ -15,8 +16,9 @@ export class CardDetailsComponent implements OnInit {
 
   constructor(
     private creditCardService: CreditCardService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap
@@ -27,5 +29,14 @@ export class CardDetailsComponent implements OnInit {
           filter((c) => c.card_number === Number(routeId))
         );
       });
+  }
+
+  delete() {
+    this.creditCard$.subscribe(async card => {
+      await this.creditCardService.delete(card.card_number).subscribe(card => console.log(card.message))
+      this.router.navigate(['/credit-cards'])
+    }
+    );
+
   }
 }

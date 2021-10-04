@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-import { DeleteMessage } from './deleteResponse.model';
+import { DeleteMessage } from '../deleteResponse.model';
 import { Transaction } from './transaction.model';
 
 @Injectable({
