@@ -16,10 +16,9 @@ import { TransactionModule } from './transaction/transaction.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     CreditCardModule,
-    TransactionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [],
 })
-export class AppModule {}
+export class AppModule { }
