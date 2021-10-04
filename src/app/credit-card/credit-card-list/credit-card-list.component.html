@@ -1,15 +1,16 @@
 <div *ngIf="creditCards | async as cards; else loading" class="container">
   <!-- Card list -->
   <table *ngIf="cards.length; else noneFound">
-    <tr>
+    <tr class="header">
       <td>Cardholder's name:</td>
       <td>Card number</td>
       <td>Issuer</td>
     </tr>
     <tr
-      *ngFor="let card of cards"
+      *ngFor="let card of cards; index as i"
       class="credit-card"
       [routerLink]="card.card_number.toString()"
+      [ngClass]="{ marked: i % 0 }"
     >
       <td>{{ card.cardholder_name }}</td>
       <td>{{ card.card_number }}</td>
