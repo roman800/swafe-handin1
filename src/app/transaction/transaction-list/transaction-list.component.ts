@@ -17,6 +17,8 @@ export class TransactionListComponent {
   transactions$: Observable<Transaction[]> = this.transactionService.get();
   creditCards$: Observable<CreditCard[]> = this.creditCardService.get();
 
+  filter?: MatSelectChange;
+
   constructor(
     private transactionService: TransactionService,
     private creditCardService: CreditCardService,
@@ -37,6 +39,10 @@ export class TransactionListComponent {
   }
 
   filterChange(selectedOption: MatSelectChange) {
+    // Save applied filter
+    this.filter = selectedOption;
+
+    // Apply filter
     this.transactions$ = this.transactionService.get().pipe(
       mergeAll(),
       filter(
@@ -46,5 +52,9 @@ export class TransactionListComponent {
       ),
       toArray()
     );
+  }
+  clearFilters() {
+    this.filter = undefined;
+    this.transactions$ = this.transactionService.get();
   }
 }

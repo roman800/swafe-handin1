@@ -1,6 +1,7 @@
 <div class="filter-header">
   <div>Filter by credit card id:</div>
   <mat-select
+    [value]="filter?.value"
     (selectionChange)="filterChange($event)"
     placeholder="Select credit card number.."
   >
@@ -10,6 +11,9 @@
       >{{ creditCard.card_number }}</mat-option
     >
   </mat-select>
+  <div class="clear-filters" *ngIf="filter" (click)="clearFilters()">
+    Clear filters
+  </div>
 </div>
 
 <!-- Tranaction list -->
