@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 export type NavRoute = 'credit-cards' | 'add-card' | 'transaction-screen';
 
@@ -19,6 +19,10 @@ export class NavigationBarComponent implements OnInit {
       if (event instanceof NavigationStart) {
         this.currentRoute = event.url.slice(
           event.url.indexOf('/') + 1
+        ) as NavRoute;
+      } else if (event instanceof NavigationEnd) {
+        this.currentRoute = event.urlAfterRedirects.slice(
+          event.urlAfterRedirects.indexOf('/') + 1
         ) as NavRoute;
       }
     });

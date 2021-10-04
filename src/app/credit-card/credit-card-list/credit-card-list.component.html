@@ -6,7 +6,11 @@
       <td>Card number</td>
       <td>Issuer</td>
     </tr>
-    <tr *ngFor="let card of cards" [routerLink]="card.card_number.toString()">
+    <tr
+      *ngFor="let card of cards"
+      class="credit-card"
+      [routerLink]="card.card_number.toString()"
+    >
       <td>{{ card.cardholder_name }}</td>
       <td>{{ card.card_number }}</td>
       <td>{{ card.issuer }}</td>

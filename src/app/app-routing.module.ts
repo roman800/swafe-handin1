@@ -6,7 +6,6 @@ import { CreditCardListComponent } from './credit-card/credit-card-list/credit-c
 import { TransactionOverviewComponent } from './transaction/transaction-overview/transaction-overview.component';
 
 export const navigationRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'credit-cards',
     component: CreditCardListComponent,
@@ -23,6 +22,7 @@ export const navigationRoutes: Routes = [
     path: 'transaction-screen',
     component: TransactionOverviewComponent,
   },
+  { path: '**', redirectTo: 'credit-cards', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(navigationRoutes)],
