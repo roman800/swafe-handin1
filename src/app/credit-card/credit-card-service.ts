@@ -31,7 +31,7 @@ export class CreditCardService {
     )
   }
 
-  delete(credit_card_id: string): Observable<DeleteMessage> {
+  delete(credit_card_id: number): Observable<DeleteMessage> {
     return this.httpClient.delete<DeleteMessage>(this.endpoint + credit_card_id, this.httpOptions).pipe(
       tap(message => console.log(message.message + "on: " + message.date)),
       catchError(
