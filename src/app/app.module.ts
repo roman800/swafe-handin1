@@ -7,8 +7,6 @@ import { CreditCardModule } from './credit-card/credit-card-module';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { TransactionModule } from './transaction/transaction.module';
-
 @NgModule({
   declarations: [AppComponent, NavigationBarComponent],
   imports: [
@@ -21,4 +19,4 @@ import { TransactionModule } from './transaction/transaction.module';
   bootstrap: [AppComponent],
   exports: [],
 })
-export class AppModule { }
+export class AppModule {}
