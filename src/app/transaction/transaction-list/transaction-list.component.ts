@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, mergeAll } from 'rxjs/operators';
 import { CreditCard } from 'src/app/credit-card/credit-card-model';
 import { CreditCardService } from 'src/app/credit-card/credit-card-service';
 import { Transaction } from '../transaction.model';
@@ -11,29 +11,20 @@ import { TransactionService } from '../transaction.service';
   templateUrl: './transaction-list.component.html',
   styleUrls: ['./transaction-list.component.scss'],
 })
-export class TransactionListComponent implements OnInit {
-  transactions$?: Observable<Transaction[]>;
-  creditCards$?: Observable<CreditCard[]>;
+export class TransactionListComponent {
+  transactions$?: Observable<Transaction[]> = this.transactionService.get();
+  creditCards$?: Observable<CreditCard[]> = this.creditCardService.get();
 
   constructor(
     private transactionService: TransactionService,
     private creditCardService: CreditCardService
-  ) {
-    this.creditCards$ = this.creditCardService.get();
-  }
-
-  ngOnInit(): void {
-    this.getTransactions();
-  }
-
-  getTransactions() {
-    this.transactions$ = this.transactionService.get();
-  }
+  ) {}
 
   deleteTransaction(uid: string) {
-    this.transactionService.delete(uid).subscribe(response => console.log(response.message));
-    this.getTransactions();
-
+    this.transactionService
+      .delete(uid)
+      .subscribe((response) => console.log(response.message));
+    this.transactions$ = this.transactionService.get();
   }
-  filterChange() { }
+  filterChange() {}
 }

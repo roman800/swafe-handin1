@@ -5,19 +5,17 @@ import { TransactionService } from '../transaction.service';
 @Component({
   selector: 'app-transaction-overview',
   templateUrl: './transaction-overview.component.html',
-  styleUrls: ['./transaction-overview.component.css']
+  styleUrls: ['./transaction-overview.component.scss'],
 })
 export class TransactionOverviewComponent implements OnInit {
-  transactions?: Transaction[]
-  transaction?: Transaction
-  constructor(private transactionService: TransactionService) { }
+  transactions?: Transaction[];
+  transaction?: Transaction;
+  constructor(private transactionService: TransactionService) {}
 
   ngOnInit(): void {
-    this.transactionService.get().subscribe(
-      transactions => {
-        this.transactions = transactions;
-        this.transaction = transactions.pop();
-      });
+    this.transactionService.get().subscribe((transactions) => {
+      this.transactions = transactions;
+      this.transaction = transactions.pop();
+    });
   }
-
 }
