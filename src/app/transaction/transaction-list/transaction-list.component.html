@@ -1,8 +1,14 @@
-<div class="header">
-  <mat-select (selectionChange)="filterChange()">
+<div class="filter-header">
+  <div>Filter by credit card id:</div>
+  <mat-select
+    (selectionChange)="filterChange($event)"
+    placeholder="Select credit card number.."
+  >
     <mat-option
       *ngFor="let creditCard of creditCards$ | async as creditCards"
-    ></mat-option>
+      [value]="creditCard.card_number"
+      >{{ creditCard.card_number }}</mat-option
+    >
   </mat-select>
 </div>
 
