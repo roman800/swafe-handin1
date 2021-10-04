@@ -1,3 +1,6 @@
+@import "../../../mixins/table.scss";
+@include table-with-header;
+
 .transaction-List {
   display: flex;
   flex-flow: column;
@@ -9,4 +12,16 @@
   padding: 50px;
   justify-content: center;
   align-items: center;
+}
+
+table {
+  width: 100%;
+
+  .delete {
+    border-radius: 5px;
+    background-color: var(--error);
+    color: white;
+    padding: 5px 10px;
+    width: fit-content;
+  }
 }

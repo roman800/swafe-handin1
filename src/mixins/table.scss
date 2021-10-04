@@ -2,10 +2,22 @@
 	table {
 		width: 100%;
 		border-collapse: collapse;
-	}
-	tr {
-		border-bottom: 1px solid #ebebeb;
-		height: 72px;
-		cursor: pointer;
+		tr {
+			border-bottom: 1px solid var(--grey-light);
+			height: 72px;
+			cursor: pointer;
+			&:hover {
+				background: var(--grey-hover);
+			}
+
+			&.marked {
+				color: var(--grey);
+			}
+		}
+
+		tr:first-child {
+			font-weight: bold;
+			font-size: large;
+		}
 	}
 }
