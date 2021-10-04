@@ -1,10 +1,27 @@
 <div class="routing-container">
   <div
-    *ngFor="let route of routes"
+    [ngClass]="{
+      activated:
+        'credit-cards' === currentRoute ||
+        currentRoute?.includes('credit-cards')
+    }"
     class="route"
-    [routerLink]="route"
-    [ngClass]="{ activated: route === currentRoute }"
+    routerLink="credit-cards"
   >
-    {{ route | titlecase }}
+    Credit cards
+  </div>
+  <div
+    [ngClass]="{ activated: 'add-card' === currentRoute }"
+    class="route"
+    routerLink="add-card"
+  >
+    Add card
+  </div>
+  <div
+    [ngClass]="{ activated: 'transaction-screen' === currentRoute }"
+    class="route"
+    routerLink="transaction-screen"
+  >
+    Transactions
   </div>
 </div>

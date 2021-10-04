@@ -1,0 +1,12 @@
+.transaction-List {
+  display: flex;
+  flex-flow: column;
+}
+
+.loading {
+  display: flex;
+  width: 100%;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+}

@@ -2,7 +2,7 @@
   <!-- Credit card form -->
   <Form [formGroup]="creditCardForm">
     <!-- Card number -->
-    <div class="input-container">
+    <div class="input-container" style="grid-column: 1/1; grid-row: 1/1">
       <p>Card number</p>
       <input
         type="number"
@@ -21,7 +21,7 @@
     </div>
 
     <!-- CSC Code -->
-    <div class="input-container">
+    <div class="input-container" style="grid-column: 2/2; grid-row: 1/1">
       <p>CSC code</p>
       <input
         type="number"
@@ -40,10 +40,10 @@
     </div>
 
     <!-- Cardholder name -->
-    <div class="input-container">
+    <div class="input-container" style="grid-column: 1/1; grid-row: 2/2">
       <p>Cardholder's name</p>
       <input
-        type="number"
+        type="text"
         formControlName="cardholder_name"
         placeholder="Card holder's name"
         [ngClass]="{ error: c.cardholder_name.errors && showErrors }"
@@ -57,45 +57,55 @@
         </div>
       </div>
     </div>
-    <div class="input-container-row">
-      <!-- Expiration date month -->
-      <div class="input-container">
-        <p>Expiration month</p>
-        <input
-          type="number"
-          formControlName="expiration_date_month"
-          placeholder="The month of the card's expiration date"
-          [ngClass]="{ error: c.expiration_date_month.errors && showErrors }"
-        />
-        <div *ngIf="c.expiration_date_month.errors && showErrors">
-          <div
-            *ngFor="let error of c.expiration_date_month.errors | controlError"
-            class="error-info"
-          >
-            {{ error }}
-          </div>
-        </div>
-      </div>
-
-      <!-- Expiration date year -->
-      <div class="input-container">
-        <p>Expiration year</p>
-        <input
-          type="number"
-          formControlName="expiration_date_year"
-          placeholder="The year of the card's expiration date"
-          [ngClass]="{ error: c.expiration_date_year.errors && showErrors }"
-        />
-        <div *ngIf="c.expiration_date_year.errors && showErrors">
-          <div
-            *ngFor="let error of c.expiration_date_year.errors | controlError"
-            class="error-info"
-          >
-            {{ error }}
-          </div>
+    <!-- Expiration date month -->
+    <div class="input-container" style="grid-column: 2/2; grid-row: 2/2">
+      <p>Expiration month</p>
+      <input
+        type="number"
+        formControlName="expiration_date_month"
+        placeholder="The month of the card's expiration date"
+        [ngClass]="{ error: c.expiration_date_month.errors && showErrors }"
+      />
+      <div *ngIf="c.expiration_date_month.errors && showErrors">
+        <div
+          *ngFor="let error of c.expiration_date_month.errors | controlError"
+          class="error-info"
+        >
+          {{ error }}
         </div>
       </div>
     </div>
-    <button (click)="onClick()">Add credit card</button>
+
+    <!-- Expiration date year -->
+    <div class="input-container" style="grid-column: 1/1; grid-row: 3/3">
+      <p>Expiration year</p>
+      <input
+        type="number"
+        formControlName="expiration_date_year"
+        placeholder="The year of the card's expiration date"
+        [ngClass]="{ error: c.expiration_date_year.errors && showErrors }"
+      />
+      <div *ngIf="c.expiration_date_year.errors && showErrors">
+        <div
+          *ngFor="let error of c.expiration_date_year.errors | controlError"
+          class="error-info"
+        >
+          {{ error }}
+        </div>
+      </div>
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      style="
+        grid-column: 1/2 span;
+        grid-row: 4/4;
+        width: fit-content;
+        height: fit-content;
+      "
+      (click)="onClick()"
+    >
+      Add credit card
+    </button>
   </Form>
 </div>
