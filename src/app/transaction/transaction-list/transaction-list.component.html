@@ -1,21 +1,42 @@
-<mat-select (selectionChange)="filterChange()">
-  <mat-option
-    *ngFor="let creditCard of creditCards$ | async as creditCards"
-  ></mat-option>
-</mat-select>
-<div *ngIf="transactions$ | async as transactions; else loading">
-  <div *ngIf="transactions.length; else noneFound" class="transaction-List">
-    <div *ngFor="let transaction of transactions">
-      <app-transaction-list-item
-        [transaction]="transaction"
-        (deleteTransactionEvent)="deleteTransaction($event)"
-      >
-      </app-transaction-list-item>
-    </div>
-  </div>
+<div class="header">
+  <mat-select (selectionChange)="filterChange()">
+    <mat-option
+      *ngFor="let creditCard of creditCards$ | async as creditCards"
+    ></mat-option>
+  </mat-select>
 </div>
 
-<ng-template #noneFound>Error</ng-template>
+<!-- Tranaction list -->
+<table *ngIf="transactions$ | async as transactions; else loading">
+  <!-- Table header -->
+  <tr class="header">
+    <td>Card number</td>
+    <td>Amount</td>
+    <td>Date</td>
+    <td>Comment:</td>
+    <td></td>
+  </tr>
+
+  <!-- Transactions -->
+  <tr
+    *ngFor="let transaction of transactions; index as i"
+    [ngClass]="{ marked: i % 2 }"
+  >
+    <td>{{ transaction.credit_card.card_number }}</td>
+    <td>{{ transaction.amount }}</td>
+    <td>{{ transaction.date | date: "dd/MM/YY" }}</td>
+    <td>{{ transaction.comment }}</td>
+    <td>
+      <div class="delete" (click)="onDelete(transaction.uid)">Delete</div>
+    </td>
+  </tr>
+</table>
+
+<ng-template #noneFound>
+  <p style="color: var(--error)">
+    An error occurred. Try again, or contact our support.
+  </p></ng-template
+>
 <ng-template #loading>
   <div class="loading">
     <mat-spinner [color]="'primary'"></mat-spinner>
