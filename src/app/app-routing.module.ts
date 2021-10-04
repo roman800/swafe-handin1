@@ -20,7 +20,7 @@ export const navigationRoutes: Routes = [
   },
   {
     path: 'transaction-screen',
-    component: TransactionOverviewComponent,
+    loadChildren: () => import('./transaction/transaction.module').then(m => m.TransactionModule),
   },
   { path: '**', redirectTo: 'credit-cards', pathMatch: 'full' },
 ];
@@ -28,4 +28,4 @@ export const navigationRoutes: Routes = [
   imports: [RouterModule.forRoot(navigationRoutes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
