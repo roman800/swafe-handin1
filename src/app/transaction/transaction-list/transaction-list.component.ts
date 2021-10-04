@@ -20,4 +20,8 @@ export class TransactionListComponent implements OnInit {
     this.transactionService.get().subscribe(transactions => this.transactions = transactions);
   }
 
+  deleteTransaction(uid: string) {
+    this.transactionService.delete(uid).subscribe(response => alert(response.message));
+    this.transactions = this.transactions?.filter(transaction => transaction.uid !== uid);
+  }
 }

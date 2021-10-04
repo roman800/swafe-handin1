@@ -4,7 +4,8 @@
 <div *ngIf="transactions">
 	<div *ngIf="transactions.length ; else noneFound" class="transaction-List">
 		<div *ngFor="let transaction of transactions">
-			<app-transaction-list-item [transaction]="transaction"></app-transaction-list-item>
+			<app-transaction-list-item [transaction]="transaction" (deleteTransactionEvent)="deleteTransaction($event)">
+			</app-transaction-list-item>
 		</div>
 	</div>
 	<ng-template #noneFound>Error</ng-template>

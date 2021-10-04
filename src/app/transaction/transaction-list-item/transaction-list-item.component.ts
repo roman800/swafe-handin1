@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Transaction } from '../transaction.model';
+import { TransactionService } from '../transaction.service';
 
 @Component({
   selector: 'app-transaction-list-item',
@@ -8,13 +10,14 @@ import { Transaction } from '../transaction.model';
 })
 export class TransactionListItemComponent implements OnInit {
   @Input() transaction!: Transaction;
+  @Output() deleteTransactionEvent = new EventEmitter<string>();
   date!: Date;
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.date = new Date(this.transaction.date);
   }
   onClick(): void {
-    alert('TODO: missing server component for remove');
+    this.deleteTransactionEvent.emit(this.transaction.uid);
   }
 }
