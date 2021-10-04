@@ -1,11 +1,21 @@
-<p>transaction-list works!</p>
-
-
-<div *ngIf="transactions">
-	<div *ngIf="transactions.length ; else noneFound" class="transaction-List">
-		<div *ngFor="let transaction of transactions">
-			<app-transaction-list-item [transaction]="transaction"></app-transaction-list-item>
-		</div>
-	</div>
-	<ng-template #noneFound>Error</ng-template>
+<mat-select (selectionChange)="filterChange()">
+  <mat-option
+    *ngFor="let creditCard of creditCards$ | async as creditCards"
+  ></mat-option>
+</mat-select>
+<div *ngIf="transactions$ | async as transactions; else noneFound">
+  <div *ngIf="transactions.length; else noneFound" class="transaction-List">
+    <div *ngFor="let transaction of transactions">
+      <app-transaction-list-item
+        [transaction]="transaction"
+      ></app-transaction-list-item>
+    </div>
+  </div>
 </div>
+
+<ng-template #noneFound>Error</ng-template>
+<ng-template #loading>
+  <div class="loading">
+    <mat-spinner [color]="'primary'"></mat-spinner>
+  </div>
+</ng-template>

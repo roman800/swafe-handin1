@@ -9,4 +9,6 @@ export class TransactionAddComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  filterChange(selectedOption: any) {}
 }
