@@ -31,8 +31,8 @@ export class TransactionListComponent implements OnInit {
   }
 
   deleteTransaction(uid: string) {
-    this.transactionService.delete(uid).subscribe(response => alert(response.message));
-    this.transactions$ = this.transactionService.get();
+    this.transactionService.delete(uid).subscribe(response => console.log(response.message));
+    this.getTransactions();
 
   }
   filterChange() { }
