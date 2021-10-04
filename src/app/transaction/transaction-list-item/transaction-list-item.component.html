@@ -1,9 +1,0 @@
-<div *ngIf="transaction">
-	<div class="transaction-item-container">
-		<div>Card: {{transaction.credit_card.card_number}}</div>
-		<div>Amount: {{transaction.amount}} {{transaction.currency}}</div>
-		<div>Date: {{date | date: "dd/MM/YY"}}</div>
-		<div>Comment: {{transaction.comment}}</div>
-		<button (click)="onClick()">Remove</button>
-	</div>
-</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from '../transaction.model';
-import { TransactionService } from '../transaction.service';
+import { TransactionAPIService } from '../transaction.api.service';
 
 @Component({
   selector: 'app-transaction-overview',
@@ -10,7 +10,7 @@ import { TransactionService } from '../transaction.service';
 export class TransactionOverviewComponent implements OnInit {
   transactions?: Transaction[];
   transaction?: Transaction;
-  constructor(private transactionService: TransactionService) {}
+  constructor(private transactionService: TransactionAPIService) {}
 
   ngOnInit(): void {
     this.transactionService.get().subscribe((transactions) => {

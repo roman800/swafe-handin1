@@ -1,21 +1,3 @@
-<div class="filter-header">
-  <div>Filter by credit card id:</div>
-  <mat-select
-    [value]="filter?.value"
-    (selectionChange)="filterChange($event)"
-    placeholder="Select credit card number.."
-  >
-    <mat-option
-      *ngFor="let creditCard of creditCards$ | async as creditCards"
-      [value]="creditCard.card_number"
-      >{{ creditCard.card_number }}</mat-option
-    >
-  </mat-select>
-  <div class="clear-filters" *ngIf="filter" (click)="clearFilters()">
-    Clear filters
-  </div>
-</div>
-
 <!-- Tranaction list -->
 <table *ngIf="transactions$ | async as transactions; else loading">
   <!-- Table header -->
@@ -41,12 +23,7 @@
     </td>
   </tr>
 </table>
-
-<ng-template #noneFound>
-  <p style="color: var(--error)">
-    An error occurred. Try again, or contact our support.
-  </p></ng-template
->
+<!-- Loading state -->
 <ng-template #loading>
   <div class="loading">
     <mat-spinner [color]="'primary'"></mat-spinner>

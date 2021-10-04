@@ -1,4 +1,4 @@
-@import "../../../mixins/table.scss";
+@import "../../../../mixins/table.scss";
 @include table-with-header;
 
 .loading {
@@ -12,4 +12,8 @@
 .container {
 	height: 100%;
 	overflow-y: scroll;
+}
+
+table {
+	width: 100%;
 }

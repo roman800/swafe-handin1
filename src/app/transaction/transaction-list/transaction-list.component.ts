@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { merge, Observable } from 'rxjs';
-import { filter, map, mergeAll, toArray } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { CreditCard } from 'src/app/credit-card/credit-card-model';
 import { CreditCardService } from 'src/app/credit-card/credit-card-service';
 import { Transaction } from '../transaction.model';
-import { TransactionService } from '../transaction.service';
+import { TransactionListService } from '../transaction-list.service';
 
 @Component({
   selector: 'app-transaction-list',
@@ -14,37 +13,43 @@ import { TransactionService } from '../transaction.service';
   styleUrls: ['./transaction-list.component.scss'],
 })
 export class TransactionListComponent {
-  transactions$: Observable<Transaction[]> = this.transactionService.get();
+  transactions$: Observable<Transaction[]> =
+    this.transactionService.allTransactions$;
   creditCards$: Observable<CreditCard[]> = this.creditCardService.get();
 
+  filter?: MatSelectChange;
+
   constructor(
-    private transactionService: TransactionService,
+    private transactionService: TransactionListService,
     private creditCardService: CreditCardService,
     private snackbar: MatSnackBar
   ) {}
 
   onDelete(uid: string) {
-    this.transactionService.delete(uid).subscribe((response) => {
+    this.transactionService.deleteTransaction(uid).subscribe((response) => {
       // Show response with snackbar
       this.snackbar.open(response.message, '', {
         panelClass: 'snackSuccess',
         duration: 3000,
       });
-
-      // Update shown list
-      this.transactions$ = this.transactionService.get();
     });
   }
 
   filterChange(selectedOption: MatSelectChange) {
-    this.transactions$ = this.transactionService.get().pipe(
-      mergeAll(),
-      filter(
-        (transaction) =>
-          transaction.credit_card.card_number ===
-          (selectedOption.value as number)
-      ),
-      toArray()
+    // Save applied filter
+    this.filter = selectedOption;
+
+    this.transactions$ = this.transactionService.getFilteredTransaction(
+      selectedOption.value as number
     );
+    this.transactionService
+      .getFilteredTransaction(selectedOption.value as number)
+      .subscribe((list) => {
+        console.log(list);
+      });
+  }
+  clearFilters() {
+    this.filter = undefined;
+    this.transactions$ = this.transactionService.allTransactions$;
   }
 }

@@ -1,22 +1,101 @@
-<p>transaction-add works!</p>
 <div class="container">
-  <form>
-    <div class="input-container">
+  <form [formGroup]="transactionForm">
+    <!-- Card number -->
+    <div class="input-container" style="grid-column: 1/1; grid-row: 1/1">
       <p>Card number:</p>
-      <input type="text" />
+      <mat-select
+        placeholder="Select credit card.."
+        formControlName="credit_card"
+      >
+        <mat-option
+          *ngFor="let creditCard of creditCards$ | async"
+          [value]="creditCard.card_number"
+        >
+          Card with number: {{ creditCard.card_number }}
+        </mat-option>
+      </mat-select>
+      <div *ngIf="c.credit_card.errors && showErrors">
+        <div
+          *ngFor="let error of c.credit_card.errors | controlError"
+          class="error-info"
+        >
+          {{ error }}
+        </div>
+      </div>
     </div>
-    <div class="input-container">
-      <p>Amount</p>
-      <input type="text" />
+
+    <!-- Amount -->
+    <div class="input-container" style="grid-column: 2/2; grid-row: 1/1">
+      <p>Amount:</p>
+      <input
+        type="number"
+        placeholder="Amount.."
+        formControlName="amount"
+        [ngClass]="{ error: c.amount.errors && showErrors }"
+      />
+      <div *ngIf="c.amount.errors && showErrors">
+        <div
+          *ngFor="let error of c.amount.errors | controlError"
+          class="error-info"
+        >
+          {{ error }}
+        </div>
+      </div>
     </div>
-    <div class="input-container">
-      <p>Currency</p>
-      <input type="text" />
+
+    <!-- Currency -->
+    <div class="input-container" style="grid-column: 1/1; grid-row: 2/2">
+      <p>Currency:</p>
+      <input
+        type="text"
+        formControlName="currency"
+        placeholder="The amount's currency.."
+        [ngClass]="{ error: c.currency.errors && showErrors }"
+      />
+      <div *ngIf="c.currency.errors && showErrors">
+        <div
+          *ngFor="let error of c.currency.errors | controlError"
+          class="error-info"
+        >
+          {{ error }}
+        </div>
+      </div>
     </div>
-    <div class="input-container">
-      <p>Date</p>
-      <input type="date" />
+
+    <!-- Date -->
+    <div class="input-container" style="grid-column: 2/2; grid-row: 2/2">
+      <p>Date:</p>
+      <input
+        type="date"
+        formControlName="date"
+        [ngClass]="{ error: c.date.errors && showErrors }"
+      />
+      <div *ngIf="c.date.errors && showErrors">
+        <div
+          *ngFor="let error of c.date.errors | controlError"
+          class="error-info"
+        >
+          {{ error }}
+        </div>
+      </div>
     </div>
-    <button type="submit">Add transaction</button>
+
+    <!-- Comment -->
+    <div class="input-container" style="grid-column: 1/2 span; grid-row: 3/3">
+      <p>Comment:</p>
+      <input
+        type="text"
+        formControlName="comment"
+        [ngClass]="{ error: c.comment.errors && showErrors }"
+      />
+    </div>
+    <button
+      style="grid-column: 1/2 span; grid-row: 4/4"
+      mat-button
+      color="primary"
+      (click)="onSubmit()"
+    >
+      Add transaction
+    </button>
   </form>
 </div>
