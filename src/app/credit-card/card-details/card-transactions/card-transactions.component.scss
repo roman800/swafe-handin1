@@ -11,9 +11,19 @@
 
 .container {
 	height: 100%;
+	width: 100%;
 	overflow-y: scroll;
 }
 
 table {
 	width: 100%;
+	margin: 10px 40px;
+
+	.delete {
+		border-radius: 5px;
+		background-color: var(--error);
+		color: white;
+		padding: 5px 10px;
+		width: fit-content;
+	}
 }

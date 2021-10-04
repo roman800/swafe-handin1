@@ -1,5 +1,8 @@
 <div class="container">
-  <div *ngIf="creditCard$ | async as creditCard; else notFound">
+  <div
+    *ngIf="creditCard$ | async as creditCard; else notFound"
+    class="content-wrapper"
+  >
     <div class="details">
       <div class="content" style="grid-column: 1/1; grid-row: 1/1">
         <p>Cardholder's name:</p>
@@ -35,7 +38,9 @@
         </div>
       </div>
     </div>
+    <h1 style="margin-top: 30px">Transactions for this credit card</h1>
     <app-card-transactions
+      style="width: 100%"
       [cardNumber]="creditCard.card_number"
     ></app-card-transactions>
   </div>
