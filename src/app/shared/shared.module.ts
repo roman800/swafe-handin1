@@ -6,9 +6,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { ControlErrorPipe } from './control-error.pipe';
+import { HoverHighlightDirective } from './directives/hover-highlight.directive';
 
 @NgModule({
-  declarations: [ControlErrorPipe],
+  declarations: [ControlErrorPipe, HoverHighlightDirective],
   imports: [
     CommonModule,
     MatProgressSpinnerModule,
@@ -25,6 +26,7 @@ import { ControlErrorPipe } from './control-error.pipe';
     MatButtonModule,
     MatSelectModule,
     ControlErrorPipe,
+    HoverHighlightDirective,
   ],
 })
 export class SharedModule {}

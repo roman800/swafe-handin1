@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CreditCardModule } from './credit-card/credit-card-module';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationBarComponent],
@@ -14,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     CreditCardModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

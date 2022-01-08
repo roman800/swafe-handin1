@@ -7,6 +7,7 @@
     }"
     class="route"
     routerLink="credit-cards"
+    [appHoverHighlight]="'pink'"
   >
     Credit cards
   </div>
@@ -14,6 +15,7 @@
     [ngClass]="{ activated: 'add-card' === currentRoute }"
     class="route"
     routerLink="add-card"
+    [appHoverHighlight]="'pink'"
   >
     Add card
   </div>
@@ -21,6 +23,7 @@
     [ngClass]="{ activated: 'transaction-screen' === currentRoute }"
     class="route"
     routerLink="transaction-screen"
+    [appHoverHighlight]="'pink'"
   >
     Transactions
   </div>
