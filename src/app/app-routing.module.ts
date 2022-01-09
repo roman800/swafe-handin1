@@ -4,6 +4,7 @@ import { CardDetailsComponent } from './credit-card/card-details/card-details.co
 import { CreditCardAddComponent } from './credit-card/credit-card-add/credit-card-add.component';
 import { CreditCardListComponent } from './credit-card/credit-card-list/credit-card-list.component';
 import { TransactionOverviewComponent } from './transaction/transaction-overview/transaction-overview.component';
+import { UnsavedChangesGuard } from './unsaved-changes.guard';
 
 export const navigationRoutes: Routes = [
   {
@@ -17,10 +18,14 @@ export const navigationRoutes: Routes = [
   {
     path: 'add-card',
     component: CreditCardAddComponent,
+    canDeactivate: [UnsavedChangesGuard],
   },
   {
     path: 'transaction-screen',
-    loadChildren: () => import('./transaction/transaction.module').then(m => m.TransactionModule),
+    loadChildren: () =>
+      import('./transaction/transaction.module').then(
+        (m) => m.TransactionModule
+      ),
   },
   { path: '**', redirectTo: 'credit-cards', pathMatch: 'full' },
 ];
@@ -28,4 +33,4 @@ export const navigationRoutes: Routes = [
   imports: [RouterModule.forRoot(navigationRoutes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
