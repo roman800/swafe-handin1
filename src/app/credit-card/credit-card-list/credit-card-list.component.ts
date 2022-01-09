@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 import { CreditCard } from '../credit-card-model';
 import { CreditCardService } from '../credit-card-service';
 
@@ -14,6 +15,6 @@ export class CreditCardListComponent implements OnInit {
   constructor(private creditCardService: CreditCardService) {}
 
   ngOnInit(): void {
-    this.creditCards = this.creditCardService.get();
+    this.creditCards = this.creditCardService.get().pipe(retry(2));
   }
 }
