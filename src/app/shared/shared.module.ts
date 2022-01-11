@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { ControlErrorPipe } from './control-error.pipe';
 import { HoverHighlightDirective } from './directives/hover-highlight.directive';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [ControlErrorPipe, HoverHighlightDirective],
@@ -17,6 +18,7 @@ import { HoverHighlightDirective } from './directives/hover-highlight.directive'
     MatSnackBarModule,
     MatButtonModule,
     MatSelectModule,
+    FlexLayoutModule,
   ],
   exports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { HoverHighlightDirective } from './directives/hover-highlight.directive'
     MatSelectModule,
     ControlErrorPipe,
     HoverHighlightDirective,
+    FlexLayoutModule,
   ],
 })
 export class SharedModule {}

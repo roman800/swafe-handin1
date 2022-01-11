@@ -1,24 +1,20 @@
 .routing-container {
+  margin: 10px;
+  max-height: 20%;
+
+  .route {
+    flex: 1;
+    border: 1px solid var(--grey);
+    padding: 20px 40px;
+    border-radius: 10px;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    margin: 10px;
-    gap: 20px;
-    max-height: 20%;
+    cursor: pointer;
 
-    .route {
-        flex: 1;
-        border: 1px solid var(--grey);
-        padding: 20px 40px;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-
-        &.activated {
-            background-color: var(--success);
-            font-weight: bold;
-        }
+    &.activated {
+      background-color: var(--success);
+      font-weight: bold;
     }
+  }
 }

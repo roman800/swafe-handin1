@@ -1,3 +1,4 @@
+<p fxShow.xs fxHide.gt-xs>Please buy a bigger screen</p>
 <div *ngIf="creditCards | async as cards; else loading" class="container">
   <!-- Card list -->
   <table *ngIf="cards.length; else noneFound">
