@@ -1,30 +1,30 @@
 @mixin table-with-header {
-	table {
-		width: 100%;
-		border-collapse: collapse;
-		tr {
-			border-bottom: 1px solid var(--grey-light);
-			height: 72px;
-			cursor: pointer;
-			&:hover {
-				background: var(--grey-hover);
-			}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+      border-bottom: 1px solid var(--grey-light);
+      height: 72px;
+      cursor: pointer;
+      &:hover {
+        background: var(--grey-hover);
+      }
 
-			&.marked {
-				color: var(--grey);
-			}
-		}
+      &.marked {
+        color: var(--grey);
+      }
+    }
 
-		.header {
-			cursor: auto;
-			&:hover {
-				background: white;
-			}
-		}
+    .header {
+      cursor: auto;
+      &:hover {
+        background: white;
+      }
+    }
 
-		tr:first-child {
-			font-weight: bold;
-			font-size: large;
-		}
-	}
+    tr:first-child {
+      font-weight: bold;
+      font-size: large;
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TransactionListService } from 'src/app/transaction/transaction-list.service';
 import { Transaction } from 'src/app/transaction/transaction.model';
